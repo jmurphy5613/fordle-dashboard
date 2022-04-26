@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "database_development",
+    "password": "fords57254",
+    "database": "fordle",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
