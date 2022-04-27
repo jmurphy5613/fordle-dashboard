@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 function App() {
 
   const [currentWord, setCurrentWord] = useState('');
+  const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     axios.get('http://localhost:3001/words/currentWord').then(res => {
@@ -15,9 +16,9 @@ function App() {
 
   const addWord = () => {
     axios.post('http://localhost:3001/words/setCurrentWord', {
-      word: 'apple'
+      word: inputValue
     }).then(res => {
-      setCurrentWord(res.data);
+      setCurrentWord(res.data.word);
       console.log(res.data);
     })
   }
@@ -25,7 +26,7 @@ function App() {
   return (
     <div className="root">
       <h1 className="main-title">Set the Fordle word</h1>
-      <input placeholder="5 letter word"/>
+      <input placeholder="5 letter word" onChange={e => setInputValue(e.target.value)} />
       <h1 className="word-title">{`Current word: ${currentWord}`}</h1>
       <Button 
         variant='contained' 

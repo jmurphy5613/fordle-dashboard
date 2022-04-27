@@ -13,6 +13,7 @@ router.get('/currentWord', (req, res) => {
         ]
     }).then(word => {
         res.send(word);
+        console.log(word);
     });
 });
 
