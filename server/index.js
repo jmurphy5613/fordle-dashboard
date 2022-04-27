@@ -10,7 +10,7 @@ const db = require('./models');
 
 
 const wordRouter = require('./routes/wordRouter');
-app.use('/api/words', wordRouter);
+app.use('/words', wordRouter);
 
 
 db.sequelize.sync({ force: true }).then(() => {
