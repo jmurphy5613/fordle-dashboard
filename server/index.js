@@ -13,9 +13,9 @@ const wordRouter = require('./routes/wordRouter');
 app.use('/words', wordRouter);
 
 
-db.sequelize.sync({ force: true }).then(() => {
-    app.listen(port, () => {
-        console.log(`Server is running on port ${port}`);
+db.sequelize.sync().then(() => {
+    app.listen(process.env.PORT, () => {
+        console.log(`Server is running`);
     });
 });
 

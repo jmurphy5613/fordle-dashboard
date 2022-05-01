@@ -9,13 +9,13 @@ function App() {
   const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:3001/words/currentWord').then(res => {
+    axios.get('https://fordle.herokuapp.com/words/currentWord').then(res => {
       setCurrentWord(res.data.word);
     })
   }, []);
 
   const addWord = () => {
-    axios.post('http://localhost:3001/words/setCurrentWord', {
+    axios.post('https://fordle.herokuapp.com/words/setCurrentWord', {
       word: inputValue
     }).then(res => {
       setCurrentWord(res.data.word);
